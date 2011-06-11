@@ -68,6 +68,13 @@ class RemailersHandler(tornado.web.RequestHandler):
 		self.render("projects/remailers.html")
 
 
+class StorageHandler(tornado.web.RequestHandler):
+
+
+	def get(self):
+		self.render("projects/storage.html")
+
+
 
 #
 # Documentation
@@ -155,6 +162,7 @@ class Application(tornado.web.Application):
 			(r"/projects/currency/", CurrencyHandler),
 			(r"/projects/mobile/", MobileHandler),
 			(r"/projects/remailers/", RemailersHandler),
+			(r"/projects/storage/", StorageHandler),
 			(r"/documentation/", DocumentationHandler),
 			(r"/documentation/tutorials/", TutorialsHandler),
 			(r"/documentation/research/", ResearchHandler),
