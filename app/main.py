@@ -22,7 +22,7 @@ class ProjectsHandler(tornado.web.RequestHandler):
 
 
 	def get(self):
-		self.render("projects.html")
+		self.render("projects/projects.html")
 
 class DocumentationHandler(tornado.web.RequestHandler):
 
