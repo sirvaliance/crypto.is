@@ -37,6 +37,28 @@ class DocumentationHandler(tornado.web.RequestHandler):
 	def get(self):
 		self.render("documentation/documentation.html")
 
+
+class TutorialsHandler(tornado.web.RequestHandler):
+
+
+	def get(self):
+		self.render("documentation/tutorials.html")
+
+class ResearchHandler(tornado.web.RequestHandler):
+
+
+	def get(self):
+		self.render("documentation/research.html")
+
+class ServerHandler(tornado.web.RequestHandler):
+
+
+	def get(self):
+		self.render("documentation/server.html")
+
+
+
+
 class ServicesHandler(tornado.web.RequestHandler):
 
 
@@ -58,6 +80,9 @@ class Application(tornado.web.Application):
 			(r"/members/", MembersHandler),
 			(r"/projects/", ProjectsHandler),
 			(r"/documentation/", DocumentationHandler),
+			(r"/documentation/tutorials/", TutorialsHandler),
+			(r"/documentation/research/", ResearchHandler),
+			(r"/documentation/server/", ServerHandler),
 			(r"/services/", ServicesHandler),
 		]
 
