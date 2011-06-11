@@ -64,7 +64,7 @@ h1 {
 	list-style-type: none;
 	display: inline;
 	font-size: 18px;
-	font-weight: 600;
+	font-weight: bold;
 	line-height: 30px;
 	color: #888;
 	margin-left: 30px;
@@ -118,7 +118,7 @@ h1 {
 	text-align: right;
 	list-style-type: none;
 	font-size: 14px;
-	font-weight: 600;
+	font-weight: bold;
 	color: #888;
 
 }
@@ -138,7 +138,7 @@ h1 {
 #footer .footer_menu li {
 	list-style-type: none;
 	font-size: 18px;
-	font-weight: 600;
+	font-weight: bold;
 	color: #f6f6f6;
 	text-align: right;
 	line-height: 22px;
@@ -146,7 +146,7 @@ h1 {
 
 #footer .footer_menu li a {
 	font-size: 16px;
-	font-weight: 600;
+	font-weight: bold;
 	color: #f6f6f6;
 	text-decoration: none;
 }
