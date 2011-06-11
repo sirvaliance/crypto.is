@@ -117,7 +117,7 @@ def create_svscanboot():
 def create_services():
 	sudo('mkdir /etc/service/')
 	sudo('mkdir /etc/service/crypto.is/')
-	sudo('cp ~/env/server/daemontools/run /etc/service/crypto.is/run')
+	sudo('cp ~/env/crypto.is/server-setup/daemontools/run /etc/service/crypto.is/run')
 	sudo('chmod +x /etc/service/crypto.is/run')
 	
 def start_daemontools():
