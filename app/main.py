@@ -28,7 +28,7 @@ class DocumentationHandler(tornado.web.RequestHandler):
 
 
 	def get(self):
-		self.render("documentation.html")
+		self.render("documentation/documentation.html")
 
 class ServicesHandler(tornado.web.RequestHandler):
 
