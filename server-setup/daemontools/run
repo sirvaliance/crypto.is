@@ -1,0 +1,6 @@
+#! /usr/bin/env bash
+
+cd /home/crypto-server/env/crypto.is/app
+source /home/crypto-server/env/crypto.is/bin/activate
+exec envuidgid crypto-server python main.py &> log.log
+
