@@ -66,6 +66,35 @@ class ServicesHandler(tornado.web.RequestHandler):
 		self.render("services/services.html")
 
 
+class DonateHandler(tornado.web.RequestHandler):
+
+
+	def get(self):
+		self.render("services/donate.html")
+
+
+class MailingHandler(tornado.web.RequestHandler):
+
+	def get(self):
+		self.render("services/mailing_lists.html")
+
+
+class NewsHandler(tornado.web.RequestHandler):
+
+	def get(self):
+		self.render("services/news.html")
+
+
+class ServersHandler(tornado.web.RequestHandler):
+
+	def get(self):
+		self.render("services/servers.html")
+
+
+class StatsHandler(tornado.web.RequestHandler):
+
+	def get(self):
+		self.render("services/statistics.html")
 
 
 
@@ -84,6 +113,11 @@ class Application(tornado.web.Application):
 			(r"/documentation/research/", ResearchHandler),
 			(r"/documentation/server/", ServerHandler),
 			(r"/services/", ServicesHandler),
+			(r"/services/donate/", DonateHandler),
+			(r"/services/mailing_lists/", MailingHandler),
+			(r"/services/news/", NewsHandler),
+			(r"/services/servers/", ServersHandler),
+			(r"/services/statistics/", StatsHandler),
 		]
 
 		settings = dict(
