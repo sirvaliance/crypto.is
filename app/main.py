@@ -12,6 +12,12 @@ class MainHandler(tornado.web.RequestHandler):
 	def get(self):
 		self.render("main_page.html")
 
+class AboutHandler(tornado.web.RequestHandler):
+
+
+	def get(self):
+		self.render("about.html")
+
 
 class Application(tornado.web.Application):
 
@@ -19,6 +25,7 @@ class Application(tornado.web.Application):
 	def __init__(self):
 		handlers = [
 			(r"/", MainHandler),
+			(r"/about/", AboutHandler),
 		]
 
 		settings = dict(

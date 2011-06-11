@@ -13,7 +13,8 @@ h1, h2, h3, h4, h5 {
 	color: #333;
 }
 h1 {
-	font-size: 52px;
+	font-size: 44px;
+	letter-spacing: -2px;
 	font-weight: bold;
 	color: #333;
 	text-shadow: 0 1px 0 white;
