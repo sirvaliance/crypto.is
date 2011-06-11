@@ -1,0 +1,3 @@
+*.pyc
+*.swp
+server-setup/settings.py
