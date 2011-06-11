@@ -22,6 +22,16 @@ h1 {
 	margin-bottom: 20px;
 }
 
+h2 {
+	font-size: 36px;
+	letter-spacing: -2px;
+	font-weight: bold;
+	color: #333;
+	text-shadow: 0 1px 0 white;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
 .clear {
 	clear: both;
 }
