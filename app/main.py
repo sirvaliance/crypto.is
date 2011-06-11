@@ -18,6 +18,13 @@ class AboutHandler(tornado.web.RequestHandler):
 	def get(self):
 		self.render("about.html")
 
+class MembersHandler(tornado.web.RequestHandler):
+
+
+	def get(self):
+		self.render("members.html")
+
+
 class ProjectsHandler(tornado.web.RequestHandler):
 
 
@@ -48,6 +55,7 @@ class Application(tornado.web.Application):
 		handlers = [
 			(r"/", MainHandler),
 			(r"/about/", AboutHandler),
+			(r"/members/", MembersHandler),
 			(r"/projects/", ProjectsHandler),
 			(r"/documentation/", DocumentationHandler),
 			(r"/services/", ServicesHandler),
