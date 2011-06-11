@@ -24,12 +24,53 @@ class MembersHandler(tornado.web.RequestHandler):
 	def get(self):
 		self.render("members.html")
 
+# Projects
 
 class ProjectsHandler(tornado.web.RequestHandler):
 
 
 	def get(self):
 		self.render("projects/projects.html")
+
+
+class AnonymizersHandler(tornado.web.RequestHandler):
+
+
+	def get(self):
+		self.render("projects/anonymizers.html")
+
+
+class ChatHandler(tornado.web.RequestHandler):
+
+
+	def get(self):
+		self.render("projects/chat.html")
+
+
+class CurrencyHandler(tornado.web.RequestHandler):
+
+
+	def get(self):
+		self.render("projects/currency.html")
+
+
+class MobileHandler(tornado.web.RequestHandler):
+
+
+	def get(self):
+		self.render("projects/mobile.html")
+
+
+class RemailersHandler(tornado.web.RequestHandler):
+
+
+	def get(self):
+		self.render("projects/remailers.html")
+
+
+
+#
+# Documentation
 
 class DocumentationHandler(tornado.web.RequestHandler):
 
@@ -58,6 +99,7 @@ class ServerHandler(tornado.web.RequestHandler):
 
 
 
+# Services 
 
 class ServicesHandler(tornado.web.RequestHandler):
 
@@ -108,6 +150,11 @@ class Application(tornado.web.Application):
 			(r"/about/", AboutHandler),
 			(r"/members/", MembersHandler),
 			(r"/projects/", ProjectsHandler),
+			(r"/projects/anonymizers/", AnonymizersHandler),
+			(r"/projects/chat/", ChatHandler),
+			(r"/projects/currency/", CurrencyHandler),
+			(r"/projects/mobile/", MobileHandler),
+			(r"/projects/remailers/", RemailersHandler),
 			(r"/documentation/", DocumentationHandler),
 			(r"/documentation/tutorials/", TutorialsHandler),
 			(r"/documentation/research/", ResearchHandler),
