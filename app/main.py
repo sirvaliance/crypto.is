@@ -30,6 +30,13 @@ class DocumentationHandler(tornado.web.RequestHandler):
 	def get(self):
 		self.render("documentation.html")
 
+class ServicesHandler(tornado.web.RequestHandler):
+
+
+	def get(self):
+		self.render("services/services.html")
+
+
 
 
 
@@ -43,6 +50,7 @@ class Application(tornado.web.Application):
 			(r"/about/", AboutHandler),
 			(r"/projects/", ProjectsHandler),
 			(r"/documentation/", DocumentationHandler),
+			(r"/services/", ServicesHandler),
 		]
 
 		settings = dict(
