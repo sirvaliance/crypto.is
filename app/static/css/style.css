@@ -258,3 +258,23 @@ h3 {
 #main_page_image img {
 	float: right;
 }
+
+
+#donate_button {
+	background-color: #333333;
+	color: #f6f6f6;
+	font-size: 28px;
+	text-align: center;
+	font-weight: bold;
+	width: 200px;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 15px 20px;
+	border-radius: 5px;
+	margin-bottom: 30px;
+}
+
+#donate_button:hover {
+	background-color: #888;
+	cursor: pointer;
+}
