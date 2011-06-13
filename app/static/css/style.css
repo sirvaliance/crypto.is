@@ -271,6 +271,7 @@ h3 {
 	margin-right: auto;
 	padding: 15px 20px;
 	border-radius: 5px;
+	-moz-border-radius: 5px;
 	margin-bottom: 30px;
 }
 
