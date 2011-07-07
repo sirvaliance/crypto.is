@@ -279,3 +279,9 @@ h3 {
 	background-color: #888;
 	cursor: pointer;
 }
+
+#donate_button a:hover {
+	text-decoration: none;
+}
+
+
