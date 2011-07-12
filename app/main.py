@@ -1,187 +1,103 @@
 import os
 import logging
 import uuid
-
 import tornado.ioloop
 import tornado.web
 
-
 class MainHandler(tornado.web.RequestHandler):
-	
-
 	def get(self):
 		self.render("main_page.html")
-
 class AboutHandler(tornado.web.RequestHandler):
-
-
 	def get(self):
 		self.render("about.html")
 
-class MembersHandler(tornado.web.RequestHandler):
-
-
-	def get(self):
-		self.render("members.html")
-
 # Projects
-
 class ProjectsHandler(tornado.web.RequestHandler):
-
-
 	def get(self):
 		self.render("projects/projects.html")
 
-
+#CCH
+class CCHHandler(tornado.web.RequestHandler):
+	def get(self):
+		self.render("projects/cch.html")
 class AnonymizersHandler(tornado.web.RequestHandler):
-
-
 	def get(self):
-		self.render("projects/anonymizers.html")
-
-
+		self.render("projects/cch/anonymizers.html")
 class ChatHandler(tornado.web.RequestHandler):
-
-
 	def get(self):
-		self.render("projects/chat.html")
-
-
+		self.render("projects/cch/chat.html")
 class CurrencyHandler(tornado.web.RequestHandler):
-
-
 	def get(self):
-		self.render("projects/currency.html")
-
-
+		self.render("projects/cch/currency.html")
 class MobileHandler(tornado.web.RequestHandler):
-
-
 	def get(self):
-		self.render("projects/mobile.html")
-
-
+		self.render("projects/cch/mobile.html")
 class RemailersHandler(tornado.web.RequestHandler):
-
-
 	def get(self):
-		self.render("projects/remailers.html")
-
-
+		self.render("projects/cch/remailers.html")
 class StorageHandler(tornado.web.RequestHandler):
-
-
 	def get(self):
-		self.render("projects/storage.html")
+		self.render("projects/cch/storage.html")
 
-
-
-#
-# Documentation
-
-class DocumentationHandler(tornado.web.RequestHandler):
-
-
+# More
+class MoreHandler(tornado.web.RequestHandler):
 	def get(self):
-		self.render("documentation/documentation.html")
-
-
-class TutorialsHandler(tornado.web.RequestHandler):
-
-
+		self.render("more/more.html")
+class ReadingHandler(tornado.web.RequestHandler):
 	def get(self):
-		self.render("documentation/tutorials.html")
-
+		self.render("more/reading.html")
 class ResearchHandler(tornado.web.RequestHandler):
-
-
 	def get(self):
-		self.render("documentation/research.html")
+		self.render("more/research.html")
 
-class ServerHandler(tornado.web.RequestHandler):
-
-
+# Interact 
+class InteractHandler(tornado.web.RequestHandler):
 	def get(self):
-		self.render("documentation/server.html")
-
-
-
-# Services 
-
-class ServicesHandler(tornado.web.RequestHandler):
-
-
+		self.render("interact/interact.html")
+class MailingListsHandler(tornado.web.RequestHandler):
 	def get(self):
-		self.render("services/services.html")
-
-
-class DonateHandler(tornado.web.RequestHandler):
-
-
+		self.render("interact/mailing_lists.html")
+class InteractTimeHandler(tornado.web.RequestHandler):
 	def get(self):
-		self.render("services/donate.html")
-
-
-class MailingHandler(tornado.web.RequestHandler):
-
+		self.render("interact/time.html")
+class InteractGoodsHandler(tornado.web.RequestHandler):
 	def get(self):
-		self.render("services/mailing_lists.html")
-
-
-class NewsHandler(tornado.web.RequestHandler):
-
+		self.render("interact/goods.html")
+class InteractMoneyHandler(tornado.web.RequestHandler):
 	def get(self):
-		self.render("services/news.html")
-
-
-class ServersHandler(tornado.web.RequestHandler):
-
-	def get(self):
-		self.render("services/servers.html")
-
-
-class StatsHandler(tornado.web.RequestHandler):
-
-	def get(self):
-		self.render("services/statistics.html")
-
-
-
-
+		self.render("interact/money.html")
+		
 class Application(tornado.web.Application):
-
-
 	def __init__(self):
 		handlers = [
 			(r"/", MainHandler),
 			(r"/about/", AboutHandler),
-			(r"/members/", MembersHandler),
 			(r"/projects/", ProjectsHandler),
-			(r"/projects/anonymizers/", AnonymizersHandler),
-			(r"/projects/chat/", ChatHandler),
-			(r"/projects/currency/", CurrencyHandler),
-			(r"/projects/mobile/", MobileHandler),
-			(r"/projects/remailers/", RemailersHandler),
-			(r"/projects/storage/", StorageHandler),
-			(r"/documentation/", DocumentationHandler),
-			(r"/documentation/tutorials/", TutorialsHandler),
-			(r"/documentation/research/", ResearchHandler),
-			(r"/documentation/server/", ServerHandler),
-			(r"/services/", ServicesHandler),
-			(r"/services/donate/", DonateHandler),
-			(r"/services/mailing_lists/", MailingHandler),
-			(r"/services/news/", NewsHandler),
-			(r"/services/servers/", ServersHandler),
-			(r"/services/statistics/", StatsHandler),
+			
+			(r"/projects/cch/", CCHHandler),
+			(r"/projects/cch/anonymizers/", AnonymizersHandler),
+			(r"/projects/cch/chat/", ChatHandler),
+			(r"/projects/cch/currency/", CurrencyHandler),
+			(r"/projects/cch/mobile/", MobileHandler),
+			(r"/projects/cch/remailers/", RemailersHandler),
+			(r"/projects/cch/storage/", StorageHandler),
+			
+			(r"/more/", MoreHandler),
+			(r"/more/reading/", ReadingHandler),
+			(r"/more/research/", ResearchHandler),
+			
+			(r"/interact/", InteractHandler),
+			(r"/interact/mailing_lists/", MailingListsHandler),
+			(r"/interact/time/", InteractTimeHandler),
+			(r"/interact/goods/", InteractGoodsHandler),
+			(r"/interact/money/", InteractMoneyHandler),
 		]
-
 		settings = dict(
+			debug=True,
 			template_path=os.path.join(os.path.dirname(__file__), "templates"),
 			static_path=os.path.join(os.path.dirname(__file__), "static"),
 		)
 		tornado.web.Application.__init__(self, handlers, **settings)
-
-
 if __name__ == "__main__":
 	application = Application()
 	application.listen(8888)
