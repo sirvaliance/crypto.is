@@ -39,16 +39,16 @@ class StorageHandler(tornado.web.RequestHandler):
 	def get(self):
 		self.render("projects/cch/storage.html")
 
-# More
-class MoreHandler(tornado.web.RequestHandler):
+# Docs 
+class DocsHandler(tornado.web.RequestHandler):
 	def get(self):
-		self.render("more/more.html")
+		self.render("docs/docs.html")
 class ReadingHandler(tornado.web.RequestHandler):
 	def get(self):
-		self.render("more/reading.html")
+		self.render("docs/reading.html")
 class ResearchHandler(tornado.web.RequestHandler):
 	def get(self):
-		self.render("more/research.html")
+		self.render("docs/research.html")
 
 # Interact 
 class InteractHandler(tornado.web.RequestHandler):
@@ -82,9 +82,9 @@ class Application(tornado.web.Application):
 			(r"/projects/cch/remailers/", RemailersHandler),
 			(r"/projects/cch/storage/", StorageHandler),
 			
-			(r"/more/", MoreHandler),
-			(r"/more/reading/", ReadingHandler),
-			(r"/more/research/", ResearchHandler),
+			(r"/docs/", DocsHandler),
+			(r"/docs/reading/", ReadingHandler),
+			(r"/docs/research/", ResearchHandler),
 			
 			(r"/interact/", InteractHandler),
 			(r"/interact/mailing_lists/", MailingListsHandler),
