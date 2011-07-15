@@ -15,6 +15,17 @@ class AboutHandler(tornado.web.RequestHandler):
 class ProjectsHandler(tornado.web.RequestHandler):
 	def get(self):
 		self.render("projects/projects.html")
+class IntroHandler(tornado.web.RequestHandler):
+	def get(self):
+		self.render("projects/intro.html")
+class AuditHandler(tornado.web.RequestHandler):
+	def get(self):
+		self.render("projects/audit.html")
+class BleedingHandler(tornado.web.RequestHandler):
+	def get(self):
+		self.render("projects/bleeding.html")
+
+
 
 #CCH
 class CCHHandler(tornado.web.RequestHandler):
@@ -72,7 +83,11 @@ class Application(tornado.web.Application):
 		handlers = [
 			(r"/", MainHandler),
 			(r"/about/", AboutHandler),
+
 			(r"/projects/", ProjectsHandler),
+			(r"/projects/intro/", IntroHandler),
+			(r"/projects/audit/", AuditHandler),
+			(r"/projects/bleeding/", BleedingHandler),
 			
 			(r"/projects/cch/", CCHHandler),
 			(r"/projects/cch/anonymizers/", AnonymizersHandler),
