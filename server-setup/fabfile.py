@@ -17,6 +17,20 @@ To setup a new server:
 	- cd .ssh/
 	- ssh-keygen -t rsa
 
+-- Create SSL Key (or copy it in via scp)
+	mkdir keys
+	cd keys/
+	openssl genrsa -aes256 -out server.key 4096
+	openssl req -new -key server.key -out server.csr
+	cp server.key server.key.org
+	openssl rsa -in server.key.org -out server.key
+	sudo mv server.crt /etc/ssl/certs/
+	sudo mv server.key /etc/ssl/private/
+	cd ../
+	rm -r keys/
+	sudo cp env/crypto.is/server-setup/nginx.conf /etc/nginx/nginx.conf 
+	sudo /etc/init.d/nginx restart
+
 -- Run this script with
 	- fab set_host set_user_server setup_server
 """
