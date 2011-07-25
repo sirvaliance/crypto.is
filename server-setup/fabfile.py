@@ -152,40 +152,6 @@ def setup_daemontools():
 
 
 
-# Setup MongoDB
-def add_mongo_gpg_key():
-	sudo('apt-key adv --keyserver keyserver.ubuntu.com --recv 7F0CEB10')
-
-def append_mongo_repos_to_sources():
-	sudo('echo "deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen" >> /etc/apt/sources.list')
-
-def apt_get_update():
-	sudo('apt-get update')
-
-def apt_get_mongo():
-	sudo('apt-get install mongodb-10gen')
-
-def install_pymongo():
-	with cd('~/env/'):
-		# Must use && and not separate statements
-		run('source bin/activate && pip install pymongo')
-
-def install_mongokit():
-	with cd('~/env/'):
-		# Must use && and not separate statements
-		run('source bin/activate && pip install mongokit')
-
-
-def setup_mongodb():
-	add_mongo_gpg_key()
-	append_mongo_repos_to_sources()
-	apt_get_update()
-	apt_get_mongo()
-	install_pymongo()
-	install_mongokit()
-
-
-
 def install_py_bcrypt():
 	with cd('~/env/'):
 		run('source bin/activate && pip install py_bcrypt')
@@ -198,7 +164,6 @@ def setup_server():
 	setup_nginx()
 	setup_daemontools()
 	create_symlinks()
-	setup_mongodb()
 	install_py_bcrypt()
 
 
