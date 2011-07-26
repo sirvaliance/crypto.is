@@ -86,7 +86,7 @@ def install_python_modules():
 def install_git():
 	sudo('apt-get -y install git-core')
 
-# Unfuddle Repositories
+# Github Repositories
 
 def add_github_keys():
 	with cd('~/.ssh/'):
@@ -97,10 +97,16 @@ def clone_crypto_app():
 	with cd('~/env/'):
 		run('git clone git://github.com/sirvaliance/crypto.is.git')
 
+def clone_crypto_templates():
+	with cd('~/'):
+		run('git clone git://github.com/cryptodotis/crypto.is-docs.git')
+
+
 
 def clone_repos():
 	add_github_keys()
 	clone_crypto_app()
+	clone_crypto_templates()
 
 
 # Nginx
@@ -152,9 +158,9 @@ def setup_daemontools():
 
 
 
-def install_py_bcrypt():
+def install_hoggle():
 	with cd('~/env/'):
-		run('source bin/activate && pip install py_bcrypt')
+		run('source bin/activate && pip install git+https://github.com/sirvaliance/hoggle/')
 
 def setup_server():
 	ubuntu_update()
@@ -164,7 +170,7 @@ def setup_server():
 	setup_nginx()
 	setup_daemontools()
 	create_symlinks()
-	install_py_bcrypt()
+	install_hoggle()
 
 
 
@@ -172,6 +178,10 @@ def setup_server():
 
 
 """
+
+def update_hoggle():
+	with cd('~/crypto.is-docs/'):
+		run('source ~/env/bin/activate && hoggle build')
 
 def git_pull_application():
 	with cd('~/env/crypto.is/'):
