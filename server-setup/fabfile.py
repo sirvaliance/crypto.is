@@ -162,6 +162,10 @@ def install_hoggle():
 	with cd('~/env/'):
 		run('source bin/activate && pip install git+https://github.com/sirvaliance/hoggle/')
 
+def upgrade_hoggle():
+	with cd('~/env/'):
+		run('source bin/activate && pip install --upgrade git+https://github.com/sirvaliance/hoggle/')
+
 def setup_server():
 	ubuntu_update()
 	install_python_modules()
@@ -181,6 +185,7 @@ def setup_server():
 
 def update_hoggle():
 	with cd('~/crypto.is-docs/'):
+		run('git pull origin master')
 		run('source ~/env/bin/activate && hoggle build')
 
 def git_pull_application():
