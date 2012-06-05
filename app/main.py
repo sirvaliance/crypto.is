@@ -35,14 +35,14 @@ class Application(tornado.web.Application):
 	def __init__(self):
 		handlers = [
 			(r"/", MainHandler),
-			(r"/about/", AboutHandler),
-			(r"/projects/", ProjectHandler),
-            (r"/code-peer-review/", AuditHandler),
+			(r"/about/?", AboutHandler),
+			(r"/projects/?", ProjectHandler),
+			(r"/code-peer-review/?", AuditHandler),
 			
-			(r"/interact/", InteractHandler),
-			(r"/interact/time/", InteractTimeHandler),
-			(r"/interact/goods/", InteractGoodsHandler),
-			(r"/interact/money/", InteractMoneyHandler),
+			(r"/interact/?", InteractHandler),
+			(r"/interact/time/?", InteractTimeHandler),
+			(r"/interact/goods/?", InteractGoodsHandler),
+			(r"/interact/money/?", InteractMoneyHandler),
 		]
 		settings = dict(
 			debug=True,
@@ -52,5 +52,5 @@ class Application(tornado.web.Application):
 		tornado.web.Application.__init__(self, handlers, **settings)
 if __name__ == "__main__":
 	application = Application()
-	application.listen(8888)
+	application.listen(8889)
 	tornado.ioloop.IOLoop.instance().start()
